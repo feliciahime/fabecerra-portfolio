@@ -26,7 +26,12 @@ h4, h5, h6 {
 .lib-bg {
     background-image: url("./Images/lib-rijks.jpeg");
 
+
   }
+
+.semitransparent {
+    background-color: rgba(255, 255, 255, 0.2);
+}
 
   img.align-center {
     display: block;
@@ -42,4 +47,5 @@ h4, h5, h6 {
     margin: auto;
     align-content: center;
     color: black;
+
   } 
