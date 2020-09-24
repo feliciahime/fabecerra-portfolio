@@ -1,6 +1,7 @@
 # Python script to generate all three static pages:
 # Felicia Becerra
-# 2020-09-24
+# 2020-09-24 
+# Adding into ssg-python branch
 
 print('This is my Python script for re-generasting all three website pages.')
 
