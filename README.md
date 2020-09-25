@@ -1,6 +1,16 @@
 # fabecerra-portfolio
 
-This will be my first homework assignment - creating my own personal website + portfolio!
+This repo contains code in Bash and Python to create 
+a static site generator for my own personal website + portfolio.
+
+2020-09-24
+F. Becerra
+
+
+
+
+
+
 
 
 Color Scheme:
@@ -10,7 +20,7 @@ Color Scheme:
 #5F6671 (dark grey) - p text on Bio; black color for rest
 
 
-Not in use, saved:
+Not in use, saved for future editions:
 #AD9978 (mud - not in use)
 #451925 dark red (scarlet?)
 #CA4243 coral
