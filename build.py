@@ -1,8 +1,9 @@
 # Python script to generate all three static pages:
 # Felicia Becerra
-# 2020-09-24
+# 2020-09-24 
+# Adding into ssg-python branch
 
-print('This is my Python script for re-generasting all three website pages.')
+print('This is my Python script for re-generating all three website pages.')
 
 print('First create all your variables.')
 
@@ -13,6 +14,7 @@ top_html = open('./templates/top.html').read()
 # Second step: create a variable with the bottom.html:
 open('./templates/bottom.html').read()
 bottom_html = open('./templates/bottom.html').read()
+
 
 # Third step: create a variable with the index contents:
 open('./content/index.html').read()
