@@ -2,9 +2,9 @@
 # Felicia Becerra
 # 2020-09-24
 
-print('This is my Python script for re-generasting all three website pages.')
-
-print('First create all your variables.')
+# This is my Python script for re-generasting all three website pages.
+print("First I'm going to create the main function.")
+# def main()
 
 # First step: create a variable with the top.html:
 open('./templates/top.html').read()
@@ -39,3 +39,5 @@ open('./docs/portfolio.html', '+w').write(portfolio_html)
 # Build the about.html:
 about_html = top_html + about_contents + bottom_html
 open('./docs/about.html', '+w').write(about_html)
+
+# main()
