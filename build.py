@@ -2,9 +2,11 @@
 # Felicia Becerra
 # 2020-09-24
 
-# This is my Python script for re-generasting all three website pages.
+# This is my Python script for re-generating all three website pages.
 print("First I'm going to create the main function.")
-# def main()
+
+
+
 
 # First step: create a variable with the top.html:
 open('./templates/top.html').read()
@@ -40,4 +42,4 @@ open('./docs/portfolio.html', '+w').write(portfolio_html)
 about_html = top_html + about_contents + bottom_html
 open('./docs/about.html', '+w').write(about_html)
 
-# main()
+
