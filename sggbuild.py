@@ -39,7 +39,6 @@ def main():
 	for page in pages:	
 		final_index_page = base_html.replace("__replace_content_here__", index_contents) 
 		open("docs/index.html", "w+").write(final_index_page)
-		open(page['output'], 'w+').replace("__replace_title__", pages['title'])
 
 		final_portfolio_page = base_html.replace("__replace_content_here__", port_contents) 
 		open("docs/portfolio.html", "w+").write(final_portfolio_page)
@@ -47,6 +46,9 @@ def main():
 		final_about_page = base_html.replace("__replace_content_here__", about_contents) 
 		open("docs/index.html", "w+").write(final_about_page)
 
+
+
+# Can't get the title function to work. When this line is removed, it seems to work.
 		open(page['output'], 'w+').replace("__replace_title__", pages['title'])
 
 
