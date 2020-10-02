@@ -35,21 +35,26 @@ def main():
 	index_contents = open('./content/index.html').read()
 	about_contents = open('./content/about.html').read()
 	port_contents = open('./content/portfolio.html').read()
-
 	
 	for page in pages:	
-		final_index_page = base_html.replace("__replace_content_here__", index_contents) 
+		final_index_page = base_html.replace("__replace_content_here__", index_contents).replace("__replace_title__", page['title']) 
 		open("docs/index.html", "w+").write(final_index_page)
 
-		final_portfolio_page = base_html.replace("__replace_content_here__", port_contents) 
+
+		final_portfolio_page = base_html.replace("__replace_content_here__", port_contents).replace("__replace_title__", page['title'])
 		open("docs/portfolio.html", "w+").write(final_portfolio_page)
 
-		final_about_page = base_html.replace("__replace_content_here__", about_contents) 
+		final_about_page = base_html.replace("__replace_content_here__", about_contents).replace("__replace_title__", page['title'])
 		open("docs/index.html", "w+").write(final_about_page)
 
+#def apply_template():
 
 
-
+#def apply_tiles():
+#	for page in pages:
+#		final_about_page = 
+#		final_portfolio_page =
+#		final_index_page =
 
 #for page in pages:
 #	open(pages['output'], 'w+').replace("__replace_title__", pages['title'])
