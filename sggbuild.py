@@ -5,6 +5,7 @@
 print("This is my attempt to build a SGG Python script!")
 # Here is the list with all the pages. To add a page, just add it to the list!
 # [0=index, 1=about, 2=portfolio]
+
 pages = [
 	{
 		"filename": "content/index.html",
@@ -48,11 +49,13 @@ def main():
 
 
 
+
+
+#for page in pages:
+#	open(pages['output'], 'w+').replace("__replace_title__", pages['title'])
+
+
 # Can't get the title function to work. When this line is removed, it seems to work.
-		open(page['output'], 'w+').replace("__replace_title__", pages['title'])
-
-
-
 
 main()
 
@@ -66,15 +69,4 @@ main()
 # template.replace("__replace_content_here", open("./locationg-of,replacement", 'r').read())
 # open(outputfile name, 'w').write(page)
 
-
-# def replace_title():
-#	for output in pages
-#		final_index_html = replace("__replace_title__", pages['title'] 
-#		open("docs/index.html", "w+").write(final_index_page)
-#
-#		final_portfolio_html = base_html.replace("__replace_title__", port_contents) 
-#		open("docs/portfolio.html", "w+").write(final_portfolio_page)
-#
-#		final_about_html = base_html.replace("__replace_title__", ) 
-#		open("docs/index.html", "w+").write(final_about_page)
 	
