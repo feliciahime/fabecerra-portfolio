@@ -37,11 +37,16 @@ def main():
 	
 # Here's what builds all the pages, replacing the contents and title..
 def apply_template(template, page):
-	final_html = open(page["filename"]).read()
-	final_html = template.replace("__replace_content_here__", final_html).replace("__replace_title__", page["title"])
-	open(page["output"], "w+").write(final_html)
+	final_html = template.replace("__replace_content_here__", get_content(page)).replace("__replace_title__", page["title"])
+	publish_page(final_html, page)
 
+# Read in the content of each page file.
+def get_content(page):
+	return open(page["filename"]).read()
 
+# Publish the actual final HTML file for each page.
+def publish_page(text, page):
+	open(page["output"], "w+").write(text)
 
 main()
 
