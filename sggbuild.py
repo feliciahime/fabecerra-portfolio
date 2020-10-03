@@ -1,9 +1,9 @@
 # Python script to generate all three static pages using functions.
 # Felicia Becerra
-# 2020-09-29
+# 2020-10-02
 
 print("This is my attempt to build a SGG Python script!")
-# Here is the list with all the pages. To add a page, just add it to the list!
+# Here is the list with all the pages. To add a page, just add it to the list! (You will have to build out that page's content though!)
 # [0=index, 1=about, 2=portfolio]
 
 pages = [
@@ -29,49 +29,21 @@ pages = [
 # page_output = pages['output']
 
 
-print("Here's the main function.")
+# Here's where the base (HTML template) is opened.
 def main():
-	base_html = open('./templates/base.html').read()
-	index_contents = open('./content/index.html').read()
-	about_contents = open('./content/about.html').read()
-	port_contents = open('./content/portfolio.html').read()
+	base_html = open("./templates/base.html").read()
+	for page in pages:
+		apply_template(base_html, page)
 	
-	for page in pages:	
-		final_index_page = base_html.replace("__replace_content_here__", index_contents).replace("__replace_title__", page['title']) 
-		open("docs/index.html", "w+").write(final_index_page)
+# Here's what builds all the pages, replacing the contents and title..
+def apply_template(template, page):
+	final_html = open(page["filename"]).read()
+	final_html = template.replace("__replace_content_here__", final_html).replace("__replace_title__", page["title"])
+	open(page["output"], "w+").write(final_html)
 
 
-		final_portfolio_page = base_html.replace("__replace_content_here__", port_contents).replace("__replace_title__", page['title'])
-		open("docs/portfolio.html", "w+").write(final_portfolio_page)
-
-		final_about_page = base_html.replace("__replace_content_here__", about_contents).replace("__replace_title__", page['title'])
-		open("docs/index.html", "w+").write(final_about_page)
-
-#def apply_template():
-
-
-#def apply_tiles():
-#	for page in pages:
-#		final_about_page = 
-#		final_portfolio_page =
-#		final_index_page =
-
-#for page in pages:
-#	open(pages['output'], 'w+').replace("__replace_title__", pages['title'])
-
-
-# Can't get the title function to work. When this line is removed, it seems to work.
 
 main()
 
-
-
-
-
-# content placement suggestion: __replace_content_here__
-
-# content = open(filename, 'r').read() -- need to open and read the file before you can replace
-# template.replace("__replace_content_here", open("./locationg-of,replacement", 'r').read())
-# open(outputfile name, 'w').write(page)
 
 	
