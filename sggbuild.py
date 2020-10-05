@@ -10,17 +10,20 @@ pages = [
 	{
 		"filename": "content/index.html",
 		"output": "docs/index.html",
-		"title": "F.A. Becerra - Main Page"   
+		"title": "F.A. Becerra - Main Page",
+		"active_link_replacement": "active-link"   
 	},
 	{
 		"filename": "content/about.html",
 		"output": "docs/about.html",
-		"title": "About Me"
+		"title": "About Me",
+		"active_link_replacement": "active-link"   
 	},
 	{
 		"filename": "content/portfolio.html",
 		"output": "docs/portfolio.html",
-		"title": "My Portfolio"
+		"title": "My Portfolio",
+		"active_link_replacement": "active-link"   
 	}
 ]
 
@@ -34,11 +37,21 @@ def main():
 	base_html = open("./templates/base.html").read()
 	for page in pages:
 		apply_template(base_html, page)
+
+# Here is a funtion to replace the replacement links with "active-link", but I couldn't figure out how to get this working.
+# def apply_active_link(page):
+# 	if page["filename"] == "content/index.html":
+# 		page.replace("__replace_index_link__", "active-link")
+# 	# elif page["filename"] == "content/about.html":
+# 	# 	page.replace("__replace_port_link__", "active-link")
+# 	# elif page["filename"] == "content/portfolio.html":
+# 	# 	page.replace("__replace_about_link__", "active-link")
 	
-# Here's what builds all the pages, replacing the contents and title..
+# Here's what builds all the pages, replacing the contents and title.
 def apply_template(template, page):
 	final_html = template.replace("__replace_content_here__", get_content(page)).replace("__replace_title__", page["title"])
 	publish_page(final_html, page)
+
 
 # Read in the content of each page file.
 def get_content(page):
@@ -47,6 +60,7 @@ def get_content(page):
 # Publish the actual final HTML file for each page.
 def publish_page(text, page):
 	open(page["output"], "w+").write(text)
+
 
 main()
 
