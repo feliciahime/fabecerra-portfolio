@@ -39,17 +39,19 @@ def main():
 		apply_template(base_html, page)
 
 # Here is a funtion to replace the replacement links with "active-link", but I couldn't figure out how to get this working.
-# def apply_active_link(page):
-# 	if page["filename"] == "content/index.html":
-# 		page.replace("__replace_index_link__", "active-link")
-# 	# elif page["filename"] == "content/about.html":
-# 	# 	page.replace("__replace_port_link__", "active-link")
-# 	# elif page["filename"] == "content/portfolio.html":
-# 	# 	page.replace("__replace_about_link__", "active-link")
+def apply_active_link(html, page):
+	if page["filename"] == "content/index.html":
+		return html.replace("__replace_index_link__", "active-link")
+	elif page["filename"] == "content/about.html":
+		return html.replace("__replace_about_link__", "active-link")
+	elif page["filename"] == "content/portfolio.html":
+		return html.replace("__replace_port_link__", "active-link")
+
 	
 # Here's what builds all the pages, replacing the contents and title.
 def apply_template(template, page):
 	final_html = template.replace("__replace_content_here__", get_content(page)).replace("__replace_title__", page["title"])
+	final_html = apply_active_link(final_html, page)
 	publish_page(final_html, page)
 
 
