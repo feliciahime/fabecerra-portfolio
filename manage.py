@@ -5,7 +5,6 @@
 import glob
 import os
 
-
 # glob creates a list of all content files in the variable 'all_html_files'.
 all_html_files = glob.glob("content/*.html")
 print(all_html_files)
@@ -18,6 +17,13 @@ print("--------------")
 pages = [ ]
 x = 0
 
+#	Blog [0] = "title": "Coming Soon!"
+# 	Index [1] =  "title": "F.A. Becerra - Main Page"
+# 	About [2] = "title": "About Me"}
+# 	Port [3] = "title": "My Portfolio"
+
+title_list = ["Blog", "Home", "About Me", "Portfolio"]
+
 for page in all_html_files:
 	file_path = all_html_files[x]
 	print(file_path)
@@ -28,19 +34,12 @@ for page in all_html_files:
 	print(x)
 	pages.append({
 		"filename": str(file_path),
-		"title": " {{ title }} ",
+		"title": title_list[x],
 		"output": "docs/" + str(file_name)})
 	x += 1
 		
 print("Final pages:")
 print(pages)
-
-# ----------
-# Note to self of appropriate tites to change later:
-#	Blog [0] = "title": "Coming Soon!"
-# 	Index [1] =  "title": "F.A. Becerra - Main Page"
-# 	About [2] = "title": "About Me"}
-# 	Port [3] = "title": "My Portfolio"
 
 
 def main():
@@ -50,13 +49,13 @@ def main():
 
 def apply_active_link(html, page):
 	if page["filename"] == "content/index.html":
-		return html.replace("__replace_index_link__", "active-link").replace(" {{ title }} ", "F.A. Becerra - Main Page")
+		return html.replace("__replace_index_link__", "active-link")
 	elif page["filename"] == "content/about.html":
-		return html.replace("__replace_about_link__", "active-link").replace(" {{ title }} ", "About Me")
+		return html.replace("__replace_about_link__", "active-link")
 	elif page["filename"] == "content/portfolio.html":
-		return html.replace("__replace_port_link__", "active-link").replace(" {{ title }} ", "Portfolio")
+		return html.replace("__replace_port_link__", "active-link")
 	elif page["filename"] == "content/blog.html":
-		return html.replace("__replace_blog_link__", "active-link").replace(" {{ title }} ", "Blog")
+		return html.replace("__replace_blog_link__", "active-link")
 
 # Here's what builds all the pages, replacing the contents and title.
 def apply_template(template, page):
@@ -78,11 +77,15 @@ main()
 from jinja2 import Template
 index_html = open("./content/index.html").read()
 
-template_html = open("./templates/base.html").read() 
-template = Template(template_html) 
-template.render(
-    title="Homepage",
-content=index_html, )
-print(template_html)
+# template_html = open("./templates/base.html").read() 
+# template = Template(template_html) 
+
+# for pages in pages:
+# 	template.render(
+# 	    pages=pages,
+# 		content=page.file_path,
+# 		title=page.title )
+# print(template_html)
+
 
 

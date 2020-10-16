@@ -10,17 +10,11 @@
             <link href="./css/style.css" rel="stylesheet" />
             <div class="container">
                 <ul class="nav justify-content-end">
+                    {% for page in pages %}
                     <li class="nav-item">
-                      <a class="nav-link __replace_index_link__" href="./index.html"> Home </a>
+                      <a href="{{ page.output_filename }}">{{ page.title }}</a>
                     </li>
-                    <li class="nav-item">
-                      <a class="nav-link __replace_port_link__" href="./portfolio.html"> Portfolio </a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link __replace_about_link__" href="./about.html"> About Me </a>
-                    </li>
-                     <li class="nav-item">
-                      <a class="nav-link __replace_blog_link__" href="./blog.html"> Blog </a>
+                    {% endfor %}
                     </li>
                   </ul>
             </div>
@@ -30,7 +24,7 @@
 
 
 
-__replace_content_here__
+{{ content }}
 
 
 
