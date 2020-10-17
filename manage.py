@@ -4,6 +4,7 @@
 
 import glob
 import os
+from jinja2 import Template
 
 # glob creates a list of all content files in the variable 'all_html_files'.
 all_html_files = glob.glob("content/*.html")
@@ -35,11 +36,8 @@ for page in all_html_files:
 	pages.append({
 		"filename": str(file_path),
 		"title": title_list[x],
-		"output": "docs/" + str(file_name)})
+		"output": ("./docs/" + file_name)})
 	x += 1
-		
-print("Final pages:")
-print(pages)
 
 
 def main():
@@ -59,7 +57,11 @@ def apply_active_link(html, page):
 
 # Here's what builds all the pages, replacing the contents and title.
 def apply_template(template, page):
-	final_html = template.replace("__replace_content_here__", get_content(page)).replace("__replace_title__", page["title"])
+	template = Template(template)
+	final_html = template.render(content=get_content(page), title=page["title"], pages=pages)
+	# {{content}}
+	# {{title}}
+	# final_html = template.replace("__replace_content_here__", get_content(page)).replace("__replace_title__", page["title"])
 	final_html = apply_active_link(final_html, page)
 	publish_page(final_html, page)
 
@@ -74,8 +76,8 @@ def publish_page(text, page):
 
 main()
 
-from jinja2 import Template
-index_html = open("./content/index.html").read()
+
+# index_html = open("./content/index.html").read()
 
 # template_html = open("./templates/base.html").read() 
 # template = Template(template_html) 

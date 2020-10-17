@@ -3,19 +3,30 @@
         <head>
             <meta charset="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <title>Blog</title>
+            <title> Blog </title>
             <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700" rel="stylesheet">
             <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
             <link href="./css/style.css" rel="stylesheet" />
             <div class="container">
                 <ul class="nav justify-content-end">
-                    {% for page in pages %}
+                    
                     <li class="nav-item">
-                      <a href="{{ page.output_filename }}">{{ page.title }}</a>
+                      <a href="./docs/blog.html"> Blog </a>
                     </li>
-                    {% endfor %}
+                    
+                    <li class="nav-item">
+                      <a href="./docs/index.html"> Home </a>
                     </li>
+                    
+                    <li class="nav-item">
+                      <a href="./docs/about.html"> About Me </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a href="./docs/portfolio.html"> Portfolio </a>
+                    </li>
+                    
                   </ul>
             </div>
         </head>
@@ -24,7 +35,11 @@
 
 
 
-{{ content }}
+
+<h1>"Welcome to my Tech Blog!"</h1>
+
+<p>This info coming soon to a blog near you!</p>
+
 
 
 
