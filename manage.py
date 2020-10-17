@@ -36,7 +36,8 @@ for page in all_html_files:
 	pages.append({
 		"filename": str(file_path),
 		"title": title_list[x],
-		"output": ("./docs/" + file_name)})
+		"output": ("./docs/" + file_name),
+		"link": ("./" + str(file_name) + '"' + 'class="active-link"' )})
 	x += 1
 
 
@@ -47,13 +48,13 @@ def main():
 
 def apply_active_link(html, page):
 	if page["filename"] == "content/index.html":
-		return html.replace("__replace_index_link__", "active-link")
+		return html.replace("./docs/index.html", './index.html" class="active-link')
 	elif page["filename"] == "content/about.html":
-		return html.replace("__replace_about_link__", "active-link")
+		return html.replace("./docs/about.html", './about.html" class="active-link')
 	elif page["filename"] == "content/portfolio.html":
-		return html.replace("__replace_port_link__", "active-link")
+		return html.replace("./docs/portfolio.html", './portfolio.html" class="active-link')
 	elif page["filename"] == "content/blog.html":
-		return html.replace("__replace_blog_link__", "active-link")
+		return html.replace("./docs/blog.html", './blog.html" class="active-link')
 
 # Here's what builds all the pages, replacing the contents and title.
 def apply_template(template, page):
